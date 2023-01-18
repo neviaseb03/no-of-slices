@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+class fruits {
+ 
+    static int numberofSlices(int arr[], int n)
+    {
+        int res = 1;
+ 
+        // Pick all elements one by one
+        for (int i = 1; i < n; i++) {
+            int j = 0;
+            for (j = 0; j < i; j++)
+                if (arr[i] == arr[j])
+                    break;
+ 
+            // If not printed earlier,
+            // then print it
+            if (i == j)
+                res++;
+        }
+        return res;
+    }
+ 
+    // Driver code
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter no. of fruits:");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Enter the weights of fruits:");
+        for(int i = 0; i < n; i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        System.out.print("No: of slices required is:");
+        System.out.println(numberofSlices(arr, n));
+    }
+}
+
+
+/*OUTPUT
+
+Enter no. of fruits:6
+Enter the weights of fruits:
+10
+20
+10
+30
+20
+10
+No: of slices required is:3
+
+*/
